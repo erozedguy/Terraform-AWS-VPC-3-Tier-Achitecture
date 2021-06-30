@@ -17,17 +17,19 @@ resource "aws_route_table_association" "as-pub" {
 
 # TABLE FOR PRIVATE SUBNETS
 resource "aws_route_table" "rt-priv" {
+  count  = "${length(var.azs)}"
   vpc_id = aws_vpc.my-vpc.id
 }
 
 resource "aws_route" "priv-route" {
-  route_table_id          = aws_route_table.rt-priv.id
+  count                   = "${length(var.azs)}"
+  route_table_id          = aws_route_table.rt-priv[count.index].id
   destination_cidr_block  = "0.0.0.0/0" #all IPV4 addresses
   nat_gateway_id          = aws_nat_gateway.nat-gtw[count.index].id 
 }
 
 resource "aws_route_table_association" "as-priv" {
-  count          = length(var.azs)
+  count          = "${length(var.azs)}"
   subnet_id      = aws_subnet.priv-subnets[count.index].id
-  route_table_id = aws_route_table.rt-priv.id
+  route_table_id = aws_route_table.rt-priv[count.index].id
 }
