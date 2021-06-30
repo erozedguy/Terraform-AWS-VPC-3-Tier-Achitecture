@@ -21,7 +21,6 @@ resource "aws_route_table" "rt-priv" {
 }
 
 resource "aws_route" "priv-route" {
-  count                   = length(var.azs)
   route_table_id          = aws_route_table.rt-priv.id
   destination_cidr_block  = "0.0.0.0/0" #all IPV4 addresses
   nat_gateway_id          = aws_nat_gateway.nat-gtw[count.index].id 
