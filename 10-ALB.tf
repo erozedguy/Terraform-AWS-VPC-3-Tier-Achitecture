@@ -5,10 +5,10 @@ resource "aws_lb" "app-lb" {
   security_groups    = [aws_security_group.allow_tls.id]
   subnets            = ["${aws_subnet.pub-subnets[0].id}", "${aws_subnet.pub-subnets[1].id}"]
 
-  access_logs {
-    bucket  = "state-backend-eroz"
-    enabled = true
-  }
+  # access_logs {
+  #   bucket  = "state-backend-eroz"
+  #   enabled = true
+  # }
 }
 
 resource "aws_lb_target_group" "tg-group" {
