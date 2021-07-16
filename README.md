@@ -301,7 +301,7 @@ output "lb" {
 
 # RESULTADOS
 
-Una vez ejecutado el comando `terraform apply -auto-approve` y cuando una vez terminada la creacion de la infraestrutura, se obtienen los `OUTPUTS`, especialmente las IPS privadas de las instancias EC2 y el DNS de ALB
+Una vez ejecutado el comando `terraform apply -auto-approve` y una vez terminada la creacion de la infraestrutura, se obtienen los `OUTPUTS`, especialmente las IPS privadas de las instancias EC2 y el DNS de ALB
 
 ![OUTPUTS](assets/outputs.PNG)
 
