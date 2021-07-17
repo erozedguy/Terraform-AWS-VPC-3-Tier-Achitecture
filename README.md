@@ -7,6 +7,8 @@
 
 ![salida](assets/ip1.PNG)
 
+## Arquitectura
+
 La Arquitectura esta diseñada e implementada en 2 AZs y consta de los siguientes recursos:
 
 - 1 Internet Gateway
